@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel zgłoszeń</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- EKRAN STARTOWY -->
+  <div id="ekran-startowy">
+    <h2>Wybierz tryb użytkownika</h2>
+    <button onclick="wybierzGosc()">Gość</button>
+    <button onclick="pokazPanelLogowania()">Admin</button>
+  </div>
+
+  <!-- PANEL LOGOWANIA -->
+  <div id="panel-logowania" style="display: none;">
+    <h2>Zaloguj się jako admin</h2>
+    <input type="password" id="haslo-admina" placeholder="Hasło admina">
+    <button onclick="zalogujAdmina()">Zaloguj</button>
+    <p id="blad-logowania" style="color: red; display: none;">Błędne hasło!</p>
+  </div>
+<div style="text-align: right;">
+  <button id="wyloguj" onclick="wyloguj()">Wyloguj</button>
+</div>
+
+  <!-- APLIKACJA -->
+  <div id="aplikacja" style="display: none;">
+    <h1>Lista zgłoszeń</h1>
+
+    <form id="formularz">
+      <input type="text" id="tytul" placeholder="Tytuł zgłoszenia" required>
+      <input type="text" id="opis" placeholder="Opis zgłoszenia" required>
+      <button type="submit">Dodaj zgłoszenie</button>
+    </form>
+
+    <div id="lista-zgloszen"></div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
