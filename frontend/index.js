@@ -1,6 +1,7 @@
 let zalogowany = false;
 
-const API_URL = "http://localhost:8000/zgloszenia/";
+// ✅ Pełny link do Twojego backendu FastAPI na Railway
+const API_URL = "https://backend-production-a5bd.up.railway.app/zgloszenia/";
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("formularz").addEventListener("submit", async (e) => {
@@ -78,6 +79,7 @@ async function oznaczWykonane(id) {
   });
   pobierzZgloszenia();
 }
+
 function wyloguj() {
   zalogowany = false;
   document.getElementById("aplikacja").style.display = "none";
