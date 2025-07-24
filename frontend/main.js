@@ -4,6 +4,7 @@ let zalogowany = false;
 const API_URL = "https://backend-production-a5bd.up.railway.app/zgloszenia/";
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("formularz").addEventListener("submit", async (e) => {
     e.preventDefault();
