@@ -63,3 +63,14 @@ def zmien_status(zgloszenie_id: int, nowy_status: str):
         session.add(z)
         session.commit()
         return {"message": "Status zmieniony"}
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # lub ogranicz do np. ["https://frontend-production-XXXX.up.railway.app"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
