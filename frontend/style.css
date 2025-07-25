@@ -1,145 +1,40 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f3f4f6;
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #f9f9f9;
 }
 
-h1 {
-  text-align: center;
-  color: #111827;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #d1d5db;
-  margin-bottom: 20px;
-}
-
-input {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  padding: 10px;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #1d4ed8;
+input, button {
+  margin: 5px;
 }
 
 .zgloszenie {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.status {
-  padding: 4px 8px;
-  border-radius: 4px;
-  background-color: #ccc;
-  color: #333;
-  margin-left: 10px;
-  font-size: 0.9em;
-}
-
-.status.zrobione {
-  background-color: #2ecc71;
-  color: white;
-}
-
-.wykonane-btn {
-  background-color: #3498db;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.wykonane-btn:hover {
-  background-color: #2980b9;
-}
-
-#panel-logowania {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-#panel-logowania input {
   padding: 10px;
-  width: 80%;
-  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }
-
-#panel-logowania button {
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#ekran-startowy {
-  text-align: center;
-  margin-top: 100px;
-}
-
-#ekran-startowy button {
-  margin: 10px;
-  padding: 12px 24px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #3498db;
-  color: white;
-}
-
-#ekran-startowy button:hover {
-  background-color: #2980b9;
-}
-#wyloguj {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 8px 14px;
+.status.zrobione {
+  color: green;
   font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 10px;
+}
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
 }
 
-#wyloguj:hover {
-  background-color: #c0392b;
+.dark .zgloszenie {
+  background-color: #1e1e1e;
+  border-color: #333;
+}
+
+.dark input,
+.dark textarea {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark .wykonane-btn {
+  background-color: #2e7d32;
+  color: #fff;
 }

@@ -1,9 +1,5 @@
 let zalogowany = false;
-
-
 const API_URL = "https://backend-production-a5bd.up.railway.app/zgloszenia/";
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("formularz").addEventListener("submit", async (e) => {
@@ -19,6 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("formularz").reset();
     pobierzZgloszenia();
+  });
+
+  document.getElementById("resetuj-btn").addEventListener("click", async () => {
+    if (confirm("Na pewno chcesz zresetować bazę?")) {
+      await fetch("https://backend-production-a5bd.up.railway.app/zresetuj-db", { method: "POST" });
+      pobierzZgloszenia();
+    }
   });
 });
 
@@ -46,29 +49,25 @@ function zalogujAdmina() {
 }
 
 async function pobierzZgloszenia() {
-  const odpowiedz = await fetch(API_URL);
-  const dane = await odpowiedz.json();
+  const odp = await fetch(API_URL);
+  const dane = await odp.json();
 
   const kontener = document.getElementById("lista-zgloszen");
   kontener.innerHTML = "";
 
-  dane.forEach((zgl) => {
+  dane.forEach(zgl => {
     const div = document.createElement("div");
     div.classList.add("zgloszenie");
 
     const tresc = document.createElement("span");
-    tresc.innerHTML = `
-      <strong>${zgl.tytul}</strong> – ${zgl.opis} 
-      <span class="status ${zgl.status === 'Zrobione' ? 'zrobione' : ''}">${zgl.status}</span>
-    `;
+    tresc.innerHTML = `<strong>${zgl.tytul}</strong> – ${zgl.opis} <span class="status">${zgl.status}</span>`;
     div.appendChild(tresc);
 
     if (zgl.status !== "Zrobione" && zalogowany) {
-      const przycisk = document.createElement("button");
-      przycisk.textContent = "Oznacz jako wykonane";
-      przycisk.classList.add("wykonane-btn");
-      przycisk.onclick = () => oznaczWykonane(zgl.id);
-      div.appendChild(przycisk);
+      const btn = document.createElement("button");
+      btn.textContent = "Zrobione";
+      btn.onclick = () => oznaczWykonane(zgl.id);
+      div.appendChild(btn);
     }
 
     kontener.appendChild(div);
@@ -81,6 +80,18 @@ async function oznaczWykonane(id) {
   });
   pobierzZgloszenia();
 }
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark");
+  }
+
+  // ... reszta kodu (formularz, resetuj-btn itd.)
+});
 
 function wyloguj() {
   zalogowany = false;
@@ -88,3 +99,4 @@ function wyloguj() {
   document.getElementById("panel-logowania").style.display = "none";
   document.getElementById("ekran-startowy").style.display = "block";
 }
+

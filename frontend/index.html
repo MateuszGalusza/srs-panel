@@ -2,42 +2,40 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Panel zgłoszeń</title>
+  <title>Zgłoszenia</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- EKRAN STARTOWY -->
   <div id="ekran-startowy">
     <h2>Wybierz tryb użytkownika</h2>
     <button onclick="wybierzGosc()">Gość</button>
     <button onclick="pokazPanelLogowania()">Admin</button>
   </div>
 
-  <!-- PANEL LOGOWANIA -->
   <div id="panel-logowania" style="display: none;">
-    <h2>Zaloguj się jako admin</h2>
-    <input type="password" id="haslo-admina" placeholder="Hasło admina">
+    <h2>Logowanie admina</h2>
+    <input type="password" id="haslo-admina" placeholder="Hasło">
     <button onclick="zalogujAdmina()">Zaloguj</button>
-    <p id="blad-logowania" style="color: red; display: none;">Błędne hasło!</p>
+    <p id="blad-logowania" style="color:red; display:none;">Złe hasło</p>
   </div>
-<div style="text-align: right;">
-  <button id="wyloguj" onclick="wyloguj()">Wyloguj</button>
-</div>
 
-  <!-- APLIKACJA -->
-  <div id="aplikacja" style="display: none;">
+  <div id="aplikacja" style="display:none;">
+    <div style="text-align:right;">
+      <button onclick="wyloguj()">Wyloguj</button>
+      <button id="resetuj-btn">Reset bazy</button>
+    </div>
     <h1>Lista zgłoszeń</h1>
-
     <form id="formularz">
-      <input type="text" id="tytul" placeholder="Tytuł zgłoszenia" required>
-      <input type="text" id="opis" placeholder="Opis zgłoszenia" required>
-      <button type="submit">Dodaj zgłoszenie</button>
+      <input type="text" id="tytul" placeholder="Tytuł" required>
+      <input type="text" id="opis" placeholder="Opis" required>
+      <button type="submit">Dodaj</button>
     </form>
-
     <div id="lista-zgloszen"></div>
   </div>
+  <button onclick="toggleDarkMode()" style="border: 2px solid red; background: yellow;">Tryb ciemny</button>
 
-  <script src="main.js"></script>
+
+
+  <script src="index.js"></script>
 </body>
-</html>
+</html> 

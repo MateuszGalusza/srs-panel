@@ -4,9 +4,9 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8000:8000"
+      - "8000:8000"   # tylko do komunikacji wewnętrznej
 
   frontend:
     build: ./frontend
     ports:
-      - "8080:80"
+      - "80:80"       # Railway wystawi frontend
